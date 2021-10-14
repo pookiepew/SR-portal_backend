@@ -1,7 +1,5 @@
 import connect from './connect.js';
 
-// AREA CODE
-import createAreaCode from './area-code/createAreaCode.js';
 
 // USER
 import addRoleToUser from './user/addRoleToUser.js';
@@ -23,10 +21,6 @@ import addJobToTrip from './trip/addJobToTrip.js';
 import findTripByNumber from './trip/findTripByNumber.js';
 import tripAlreadyExists from './trip/tripAlreadyExists.js';
 
-// JOB
-import createNewJob from './job/createNewJob.js';
-import findJobByNumber from './job/findJobByNumber.js';
-import jobAlreadyExists from './job/jobAlreadyExists.js';
 
 // ROLE
 import addUserToRole from './role/addUserToRole.js';
@@ -50,9 +44,14 @@ import laneAlreadyExists from './lane/laneAlreadyExists.js';
 import createNewLane from './lane/createNewLane.js';
 import findLaneByName from './lane/findLaneByName.js';
 
+import areaCode from './area-code/index.js';
+import company from './company/index.js';
+import job from './job/index.js';
+import location from './location/index.js';
+import team from './team/index.js';
+
 export default {
   connect,
-  createAreaCode,
   addRoleToUser,
   findUserByEmail,
   findUserById,
@@ -66,9 +65,6 @@ export default {
   addJobToTrip,
   findTripByNumber,
   tripAlreadyExists,
-  createNewJob,
-  findJobByNumber,
-  jobAlreadyExists,
   tokenMatchInviteToken,
   updateUser,
   deleteUser,
@@ -85,4 +81,9 @@ export default {
   laneAlreadyExists,
   createNewLane,
   findLaneByName,
+  areaCode,
+  company,
+  job,
+  location,
+  team,
 };

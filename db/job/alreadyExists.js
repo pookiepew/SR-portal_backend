@@ -1,4 +1,4 @@
-const jobAlreadyExists = async (numbers, Job, HttpError) => {
+const alreadyExists = async (numbers, Job, HttpError) => {
   try {
     const job = await Job.findOne({ numbers });
     if (job) throw new HttpError("Job already exists", 200);
@@ -9,4 +9,4 @@ const jobAlreadyExists = async (numbers, Job, HttpError) => {
 
 // const error = new HttpError('Job already exists', 200);
 
-export default jobAlreadyExists;
+export default alreadyExists;

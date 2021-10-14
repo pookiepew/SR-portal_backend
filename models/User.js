@@ -1,20 +1,23 @@
 import mongoose from 'mongoose';
 
-const requiredString = { type: String, required: true };
-
 const userSchema = new mongoose.Schema(
   {
-    name: requiredString,
-    email: requiredString,
-    password: requiredString,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    imageUrl: { type: String },
     roles: [
       {
         type: mongoose.Types.ObjectId,
         ref: 'Role',
       },
     ],
-    invitedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
     company: { type: mongoose.Types.ObjectId, ref: 'Company' },
+    team: { type: mongoose.Types.ObjectId, ref: 'Team' },
+    invitedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
+    links: {
+      workplace: { type: String },
+    },
   },
   {
     versionKey: false,

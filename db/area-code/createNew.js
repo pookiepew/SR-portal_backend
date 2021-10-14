@@ -1,4 +1,4 @@
-const createAreaCode = async (name, creator, AreaCode) => {
+const createNew = async (name, creator, AreaCode) => {
   try {
     const areaCode = new AreaCode({
       name,
@@ -11,4 +11,4 @@ const createAreaCode = async (name, creator, AreaCode) => {
   }
 };
 
-export default createAreaCode;
+export default createNew;

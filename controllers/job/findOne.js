@@ -13,7 +13,7 @@ const findOne = async (req, res, next) => {
     return next(error);
   }
   try {
-    const job = await db.findJobByNumber(company, jobNumber, Job, HttpError);
+    const job = await db.job.findByNumber(company, jobNumber, Job, HttpError);
     res.json({ job });
   } catch (err) {
     next(err);

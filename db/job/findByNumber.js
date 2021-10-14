@@ -1,4 +1,4 @@
-const findJobByNumber = async (company, jobNumber, Job, HttpError) => {
+const findByNumber = async (company, jobNumber, Job, HttpError) => {
   let query;
 
   if (company.toLowerCase() === 'srg') query = 'SRG_number'
@@ -17,4 +17,4 @@ const findJobByNumber = async (company, jobNumber, Job, HttpError) => {
   }
 };
 
-export default findJobByNumber
+export default findByNumber

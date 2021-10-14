@@ -8,8 +8,8 @@ const create = async (req, res, next) => {
   const { job } = req.body;
   const userId = req.user.id;
   try {
-    await db.jobAlreadyExists(job.numbers, Job, HttpError);
-    const newJob = await db.createNewJob(job, userId, Job);
+    await db.job.alreadyExists(job.numbers, Job, HttpError);
+    const newJob = await db.job.createNew(job, userId, Job);
     await db.addJobToTrip(job.trip, newJob._id, Trip);
     res.status(201).json({ job: newJob });
   } catch (err) {

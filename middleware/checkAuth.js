@@ -15,7 +15,7 @@ const checkAuth = async (req, res, next) => {
   const bearer = req.header('Authorization');
   if (bearer) token = bearer.split(' ')[1];
   if (!token) {
-    const error = new HttpError('Authorization denied', 401);
+    const error = new HttpError('Unauthorized', 401);
     return next(error);
   }
   try {

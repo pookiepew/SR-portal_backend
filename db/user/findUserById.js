@@ -8,6 +8,17 @@ const findUserById = async (userId, filter = '', User, HttpError) => {
         select: 'feature access',
       })
       .populate({
+        path: 'company',
+        select: '-users -teams'
+      })
+      .populate({
+        path: 'team',
+        select: '-users',
+        populate: {
+          path: 'location'
+        }
+      })
+      .populate({
         path: 'invitedBy',
         select: '-password',
         populate: {

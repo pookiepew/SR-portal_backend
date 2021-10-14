@@ -10,7 +10,7 @@ const create = async (req, res, next) => {
     return next(new HttpError('Name must be provided', 400));
   }
   try {
-    const areaCode = await db.createAreaCode(name, userId, AreaCode);
+    const areaCode = await db.areaCode.createNew(name, userId, AreaCode);
     res.status(201).json({ areaCode });
   } catch (error) {
     next(error);

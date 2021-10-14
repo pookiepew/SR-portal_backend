@@ -4,6 +4,16 @@ const findAll = async (req, res, next) => {
     const users = await User.find()
       .select('-password')
       .populate({
+        path: 'company',
+      })
+      .populate({
+        path: 'team',
+        select: '-users',
+        populate: {
+          path: 'location',
+        },
+      })
+      .populate({
         path: 'roles',
         select: 'feature access',
       })

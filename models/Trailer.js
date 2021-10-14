@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 const trailerSchema = new mongoose.Schema(
   {
     regNumber: { type: String, required: true },
+
     type: { type: mongoose.Types.ObjectId, ref: 'TrailerType', required: true },
+
     currentLocation: {
       area: { type: String, required: true },
       areaCode: {

@@ -20,6 +20,9 @@ import trailerTypeRoutes from './routes/trailer-type.js';
 import trailerRoutes from './routes/trailer.js';
 import tripRoutes from './routes/trip.js';
 import userRoutes from './routes/user.js';
+import locationRoutes from './routes/location.js';
+import teamRoutes from './routes/team.js';
+import companyRoutes from './routes/company.js';
 
 const app = express();
 
@@ -39,6 +42,9 @@ app.use('/trailer-type', trailerTypeRoutes);
 app.use('/trailer', trailerRoutes);
 app.use('/trip', tripRoutes);
 app.use('/user', userRoutes);
+app.use('/location', locationRoutes);
+app.use('/team', teamRoutes);
+app.use('/company', companyRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);

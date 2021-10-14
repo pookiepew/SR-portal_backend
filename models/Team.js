@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const company = new mongoose.Schema(
+const team = new mongoose.Schema(
   {
     name: { type: String, required: true },
     users: [
@@ -9,16 +9,7 @@ const company = new mongoose.Schema(
         ref: 'User',
       },
     ],
-    teams: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: 'Team',
-      },
-    ],
-    location: {
-      type: mongoose.Types.ObjectId,
-      ref: 'Location',
-    },
+    location: { type: mongoose.Types.ObjectId, ref: 'Location' },
 
     creator: { type: mongoose.Types.ObjectId, ref: 'User' },
     updatedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
@@ -29,4 +20,4 @@ const company = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Company', company);
+export default mongoose.model('Team', team);

@@ -1,4 +1,4 @@
-const createNewJob = async (job, creator, Job) => {
+const createNew = async (job, creator, Job) => {
   try {
     const newJob = new Job({
       ...job,
@@ -12,4 +12,4 @@ const createNewJob = async (job, creator, Job) => {
   }
 };
 
-export default createNewJob;
+export default createNew;

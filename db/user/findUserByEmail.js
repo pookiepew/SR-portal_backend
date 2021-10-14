@@ -7,6 +7,17 @@ const findUserByEmail = async (email, User) => {
         select: 'feature access',
       })
       .populate({
+        path: 'company',
+        select: '-users -teams'
+      })
+      .populate({
+        path: 'team',
+        select: '-users',
+        populate: {
+          path: 'location'
+        }
+      })
+      .populate({
         path: 'invitedBy',
         select: '-password',
         populate: {

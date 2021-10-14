@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile.prod
-    image: mainframe:9000/sr-portal_backend:v1.1.22
+    image: mainframe:9000/sr-portal_backend:v1.1.24
     container_name: 'sr-portal_backend'
     ports:
       - '2000:5000'
