@@ -6,27 +6,30 @@ const trailerSchema = new mongoose.Schema(
 
     type: { type: mongoose.Types.ObjectId, ref: 'TrailerType', required: true },
 
-    currentLocation: {
-      area: { type: String, required: true },
-      areaCode: {
-        type: mongoose.Types.ObjectId,
-        ref: 'AreaCode',
-        required: true,
+    location: {
+      current: {
+        area: { type: String, required: true },
+        areaCode: {
+          type: mongoose.Types.ObjectId,
+          ref: 'AreaCode',
+          required: true,
+        },
+      },
+      next: {
+        area: { type: String },
+        areaCode: { type: mongoose.Types.ObjectId, ref: 'AreaCode' },
+      },
+      geo: {
+        type: {
+          type: String,
+          enum: ['Point'],
+        },
+        coordinates: {
+          type: [Number],
+        },
       },
     },
-    nextLocation: {
-      area: { type: String },
-      areaCode: { type: mongoose.Types.ObjectId, ref: 'AreaCode' },
-    },
-    geoLocation: {
-      type: {
-        type: String,
-        enum: ['Point'],
-      },
-      coordinates: {
-        type: [Number],
-      },
-    },
+
     specs: {
       containerlocks: Boolean,
       lashings: Boolean,
@@ -35,9 +38,13 @@ const trailerSchema = new mongoose.Schema(
       axles: Number,
       tires: String,
     },
+
     damageReports: [{ type: mongoose.Types.ObjectId, ref: 'DamageReport' }],
+
     notes: String,
+
     imgURL: String,
+
     shipping: {
       ETD: Date,
       ATD: Date,
@@ -46,11 +53,13 @@ const trailerSchema = new mongoose.Schema(
       lane: { type: mongoose.Types.ObjectId, ref: 'Lane' },
       trip: { type: mongoose.Types.ObjectId, ref: 'Trip' },
     },
-    department: {
+
+    team: {
       type: mongoose.Types.ObjectId,
-      ref: 'Department',
+      ref: 'Team',
       required: true,
     },
+
     history: [
       {
         fromLocation: {
