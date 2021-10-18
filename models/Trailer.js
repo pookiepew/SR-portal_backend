@@ -41,7 +41,7 @@ const trailerSchema = new mongoose.Schema(
 
     damageReports: [{ type: mongoose.Types.ObjectId, ref: 'DamageReport' }],
 
-    notes: String,
+    comments: [{ type: mongoose.Types.ObjectId, ref: 'Comment' }],
 
     imgURL: String,
 
