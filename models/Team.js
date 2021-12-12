@@ -1,18 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const team = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, required: true, trim: true },
     users: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
-    location: { type: mongoose.Types.ObjectId, ref: 'Location' },
+    location: { type: mongoose.Types.ObjectId, ref: "Location" },
 
-    creator: { type: mongoose.Types.ObjectId, ref: 'User' },
-    updatedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
+    creator: { type: mongoose.Types.ObjectId, ref: "User" },
+    updatedBy: { type: mongoose.Types.ObjectId, ref: "User" },
   },
   {
     versionKey: false,
@@ -20,4 +20,4 @@ const team = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Team', team);
+export default mongoose.model("Team", team);

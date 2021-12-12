@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const trailerTypeSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    creator: { type: mongoose.Types.ObjectId, ref: 'User' },
+    type: { type: String, required: true, trim: true },
+    creator: { type: mongoose.Types.ObjectId, ref: "User" },
   },
   {
     versionKey: false,
@@ -11,4 +11,4 @@ const trailerTypeSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('TrailerType', trailerTypeSchema);
+export default mongoose.model("TrailerType", trailerTypeSchema);

@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const areaCodeSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    creator: { type: mongoose.Types.ObjectId, ref: 'User' },
+    code: { type: String, required: true, trim: true, uppercase: true },
+    creator: { type: mongoose.Types.ObjectId, ref: "User" },
   },
   {
     versionKey: false,
@@ -11,4 +11,4 @@ const areaCodeSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('AreaCode', areaCodeSchema);
+export default mongoose.model("AreaCode", areaCodeSchema);

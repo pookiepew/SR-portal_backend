@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const InvitedUserSchema = new mongoose.Schema(
   {
-    name: { type: String, default: 'Invited User' },
-    email: { type: String, required: true },
-    invitedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
+    name: { type: String, default: "Invited User" },
+    email: { type: String, required: true, lowercase: true, trim: true },
+    invitedBy: { type: mongoose.Types.ObjectId, ref: "User" },
     accepted: { type: Boolean, default: false },
     token: { type: String, required: true },
   },
@@ -14,4 +14,4 @@ const InvitedUserSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('InvitedUser', InvitedUserSchema);
+export default mongoose.model("InvitedUser", InvitedUserSchema);

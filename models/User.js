@@ -1,22 +1,22 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true },
+    name: { type: String, required: true, trim: true },
+    email: { type: String, required: true, lowercase: true, trim: true },
     password: { type: String, required: true },
-    imageUrl: { type: String },
+    imageUrl: { type: String, trim: true },
     roles: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'Role',
+        ref: "Role",
       },
     ],
-    company: { type: mongoose.Types.ObjectId, ref: 'Company' },
-    team: { type: mongoose.Types.ObjectId, ref: 'Team' },
-    invitedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
+    company: { type: mongoose.Types.ObjectId, ref: "Company" },
+    team: { type: mongoose.Types.ObjectId, ref: "Team" },
+    invitedBy: { type: mongoose.Types.ObjectId, ref: "User" },
     links: {
-      workplace: { type: String },
+      workplace: { type: String, trim: true },
     },
   },
   {
@@ -25,4 +25,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);

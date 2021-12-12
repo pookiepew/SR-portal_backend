@@ -1,22 +1,22 @@
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-import config from '../../config.js';
+import config from "../../config.js";
 
-import HttpError from '../../models/HttpError.js';
-import User from '../../models/User.js';
+import HttpError from "../../models/HttpError.js";
+import User from "../../models/User.js";
 
-import db from '../../db/index.js';
+import db from "../../db/index.js";
 
-import createJwtToken from '../../functions/createJwtToken.js';
+import createJwtToken from "../../functions/createJwtToken.js";
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  const credentialsFail = new HttpError('Invalid credentials', 401);
+  const credentialsFail = new HttpError("Invalid credentials", 401);
 
   if (!email || !password) {
-    return next(new HttpError('Email and password needs to be provided', 400));
+    return next(new HttpError("Email and password needs to be provided", 400));
   }
 
   const formattedEmail = email.toLowerCase().trim();

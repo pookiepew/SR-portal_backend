@@ -1,27 +1,27 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const company = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, required: true, trim: true },
     users: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
     teams: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'Team',
+        ref: "Team",
       },
     ],
     location: {
       type: mongoose.Types.ObjectId,
-      ref: 'Location',
+      ref: "Location",
     },
 
-    creator: { type: mongoose.Types.ObjectId, ref: 'User' },
-    updatedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
+    creator: { type: mongoose.Types.ObjectId, ref: "User" },
+    updatedBy: { type: mongoose.Types.ObjectId, ref: "User" },
   },
   {
     versionKey: false,
@@ -29,4 +29,4 @@ const company = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Company', company);
+export default mongoose.model("Company", company);

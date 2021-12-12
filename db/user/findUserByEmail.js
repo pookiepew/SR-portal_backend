@@ -1,28 +1,31 @@
 const findUserByEmail = async (email, User) => {
-  if (!email) throw new Error('userId not provided');
+  if (!email) throw new Error("userId not provided");
   try {
     const user = await User.findOne({ email })
       .populate({
-        path: 'roles',
-        select: 'feature access',
+        path: "roles",
+        select: "feature access",
       })
       .populate({
-        path: 'company',
-        select: '-users -teams'
+        path: "company",
+        select: "-users -teams",
       })
       .populate({
-        path: 'team',
-        select: '-users',
+        path: "team",
+        select: "-users",
         populate: {
-          path: 'location'
-        }
+          path: "location",
+          populate: {
+            path: "areacode",
+          },
+        },
       })
       .populate({
-        path: 'invitedBy',
-        select: '-password',
+        path: "invitedBy",
+        select: "-password",
         populate: {
-          path: 'roles',
-          select: 'feature access',
+          path: "roles",
+          select: "feature access",
         },
       });
     return user;
