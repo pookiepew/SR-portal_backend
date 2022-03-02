@@ -1,9 +1,9 @@
-import AreaCode from '../../models/AreaCode.js';
+import AreaCode from "../../models/AreaCode.js";
 
 const findAll = async (req, res, next) => {
   try {
-    const areaCodes = await AreaCode.find();
-    res.json({ count: areaCodes.length, areaCodes });
+    const areacodes = await AreaCode.find();
+    res.json({ areacodes });
   } catch (error) {
     next(error);
   }

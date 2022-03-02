@@ -11,6 +11,7 @@ import websocket from "./controllers/websocket.js";
 import HttpError from "./models/HttpError.js";
 import config from "./config.js";
 
+import areaRoutes from "./routes/area.js";
 import areaCodeRoutes from "./routes/area-code.js";
 import fileRoutes from "./routes/file.js";
 import jobRoutes from "./routes/job.js";
@@ -33,6 +34,13 @@ app.use(express.json());
 
 app.use("/uploads", express.static("uploads"));
 
+// app.use("/", (req, res, next) => {
+//   console.log(req.body);
+//   // console.log(req.body.player?.weapons);
+//   res.send(200);
+// });
+
+app.use("/area", areaRoutes);
 app.use("/area-code", areaCodeRoutes);
 app.use("/file", fileRoutes);
 app.use("/job", jobRoutes);
